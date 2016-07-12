@@ -1,7 +1,7 @@
 
 body
 { font:  Arial, Helvetica, sans-serif;
-  background: transparent url(../images/pattern.jpg) repeat;
+  background: transparent url(images/pattern.jpg) repeat;
   color: #000;
 }
 
@@ -20,14 +20,12 @@ input{
 }
 
 input[type="submit"]{
-	float:center;
 	margin-left:258px; 
 	
 }
 
-b
-{ font: normal 190% Arial, Helvetica, sans-serif;}
-
-
-
-
+@media screen and (max-width: 768px){
+	input[type="submit"]{
+		margin:0;
+	}
+}

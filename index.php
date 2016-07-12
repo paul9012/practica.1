@@ -58,14 +58,14 @@ include("conexiune.php");
       <br><br><br><br><br> 
 
   <center></br></br>
-<form method="post" action="/">
+<form method="post" action="">
     <label>Introduceti salariul Net :</label>
     <input type="text" name="salarNet" value=""/><br>
 
 <label> Introduceti Nr persoane in intretinere </label>    
 <input type="text" name="persoana" value=""/><br>
 
-    <input  type="submit" name="btn" value="Calculeaza"/>
+    <input  class="calc" type="submit" name="btn" value="Calculeaza"/>
 
     <br>
 
@@ -84,7 +84,7 @@ include("conexiune.php");
     
    
    $select = "SELECT  minBrut, maxBrut, fara_Persoane FROM deduceri";
-        $result = mysqli_query($conn, $select);
+        $result =mysqli_query($conn, $select);
                 if ($result->num_rows>0) {
                         while($row = $result->fetch_assoc()) {
                              if ($salNet>=$row['minBrut'] && $salNet<=$row['maxBrut']) {
@@ -140,13 +140,6 @@ elseif ($NrPers >= 4) {
                                             }
                                         }
 }
-
-
-
-
-   // $deduceri_personale = $_POST["deduceri_personale"] ;
-  
-
     $salariuBrut = ($salNet - 0.16*$deduceri_personale)/0.7014;
     $CAS_Angajat= ($salariuBrut * 0.105);
     $CASS_Angajat= ($salariuBrut * 0.055);

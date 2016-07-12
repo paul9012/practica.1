@@ -1,4 +1,6 @@
-
+<?php
+include ("conexiune.php");
+?>
 
 
 <!DOCTYPE html>
@@ -67,37 +69,24 @@
 <center>
 <?php
 
-$usr ="root";
-$pwd = "pass4student";
-$host ="localhost";
-$db = "calculator";
-
-$conn = new mysqli($host, $usr, $pwd, $db);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT contributie ,valoare,simbol FROM calculator where tip ='angajat' ";
+$sql = "SELECT contributie ,valoare,simbol FROM Calculator where tip ='angajat'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
 	echo "Deduceri Angajat   <br> <br> "; 
 
     while($row = $result->fetch_assoc()) {
 
 
-        echo " "  . $row["contributie"]. " -" . $row["valoare"]. "" . $row["simbol"]."<br>";
+        echo " " . $row["contributie"]. " -" . $row["valoare"]. "" . $row["simbol"]."<br>";
     }
 
     echo "<br><br>";
 
-$sql2 = "SELECT contributie ,valoare,simbol FROM calculator where tip ='angajator' ";
+$sql2 = "SELECT contributie ,valoare,simbol FROM Calculator where tip ='angajator'";
 $result2 = $conn->query($sql2);
 
 if ($result2->num_rows > 0) {
-    // output data of each row
 	echo "Deduceri Angajator   <br> <br> "; 
 
     while($row = $result2->fetch_assoc()) {
